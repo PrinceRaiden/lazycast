@@ -1,5 +1,5 @@
 lazycast: A Simple Wireless Display Receiver
-#Changes
+#What This Fork Changes
 When running all.sh, the first argument will be the pin number
 
 # Description
