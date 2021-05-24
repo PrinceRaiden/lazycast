@@ -9,6 +9,11 @@
 #   under the GPL along with build & install instructions.
 #
 #################################################################################
+if [ -z ${1+x} ]; 
+	then echo "Pin is required as first argument";
+	exit;
+fi
+
 managefrequency=1
 while :
 do
@@ -89,7 +94,7 @@ do
 	while :
 	do	
 		echo "PIN:"	
-		sudo wpa_cli -i$p2pinterface wps_pin any 31415926
+		sudo wpa_cli -i$p2pinterface wps_pin any $1
 		echo ""
 		./d2.py
 		if [ `sudo wpa_cli interface | grep -c "p2p-wl"` == 0 ] 
