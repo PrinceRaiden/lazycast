@@ -14,6 +14,12 @@ if [ -z ${1+x} ];
 	exit;
 fi
 
+if ! echo $1 | grep -E ^[0-9]{8}$
+then
+        echo "Invalid Pin: must be 8 numbers"
+        exit;
+fi
+
 managefrequency=1
 while :
 do
