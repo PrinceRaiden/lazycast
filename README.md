@@ -1,4 +1,6 @@
 lazycast: A Simple Wireless Display Receiver
+#Changes
+When running all.sh, the first argument will be the pin number
 
 # Description
 lazycast is a simple wifi display receiver. It was originally targeted Raspberry Pi (as display) and Windows 8.1/10 (as source), but it **might** also work on other Linux platforms and Miracast sources. (For other Linux systems, skip the preparation section. For video playback from Android sources, modify the ``player_select`` option in ``d2.py``.) For Windows 10 systems, the Miracast over Infrastructure (**MICE**) feature is also supported, which may provide better user experiences. In general, lazycast does not require re-compilation of wpa_supplicant to support various p2p functionalities, and should work on an "out of the box" Raspberry Pi.
@@ -53,7 +55,7 @@ make
 ```
 
 # Usage
-Run `./all.sh` to initiate lazycast receiver. Wait until the "The display is ready" message. The name of the display will appear after this message. Then, search for this name on the source device you want to cast. The default PIN number is ``31415926``. If backchannel control is supported by the source, keyboard and mouse input on Pi are redirected to the source as remote controls.  
+Run `./all.sh` to initiate lazycast receiver. Wait until the "The display is ready" message. The name of the display will appear after this message. Then, search for this name on the source device you want to cast. If backchannel control is supported by the source, keyboard and mouse input on Pi are redirected to the source as remote controls.  
 
 It is recommended to initiate the termination of the receiver on the source side. These user controls are often near the pairing controls on the source device. You can utilize the backchannel feature to remotely control the source device in order to close lazycast.  
 
@@ -65,8 +67,6 @@ Set the resolution on the source side. lazycast advertises all possible resoluti
 Modify parameters in the "settings" section in ``d2.py`` to change the sound output port (hdmi/3.5mm) and preferred player.  
 
 The maximum resolutions supported are 1920x1080p60 and 1920x1200p30. The GPU on Pi may struggle to handle 1920x1080p60, which results in high latency. In this case, reduce the FPS to 1920x1080p50.  
-
-To change the default PIN number, replace the string ``31415926`` in ``all.sh`` to another 8-digit number.  
 
 After Pi connects to the source, it has an IP address of ``192.168.173.1`` and this connection can be reused for other purposes like SSH. On the other hand, since they are under the same subnet, precautions should be taken to prevent unauthorized access to Pi by anyone who knows the PIN number.    
 
