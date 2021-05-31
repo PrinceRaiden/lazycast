@@ -46,7 +46,7 @@ make
 Clone this repo (to a desired directory):
 ```
 cd ~/
-git clone https://github.com/homeworkc/lazycast
+git clone https://github.com/PrinceRaiden/lazycast
 ```
 Go to the ``lazycast`` directory and then ``make``:
 ```
@@ -103,7 +103,7 @@ For example, if lazycast is placed under ``~/`` (which corresponds to ``/home/pi
 You can run lazycast when booting your Pi using the [systemd unit](lazycast.service). To install, log into your Pi and run:
 
 ```bash
-git clone https://github.com/homeworkc/lazycast.git
+git clone https://github.com/PrinceRaiden/lazycast.git
 mkdir -p ~/.config/systemd/user
 cp lazycast/lazycast.service ~/.config/systemd/user/
 systemctl --user daemon-reload
